@@ -5,11 +5,17 @@ import App from './App'
 import router from './router'
 import "./assets/style/reset.css"
 import "./assets/style/border.css"
-import "./assets/js/rem.js"
 import fastClick from "fastclick"
-import "./assets/style/iconfont.css";
+import "./assets/js/rem.js"
+import "./assets/style/iconfont.css"
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import style
+import 'swiper/css/swiper.css'
+
+
 
 Vue.config.productionTip = false
+Vue.use(VueAwesomeSwiper, /* { default global options } */);
 fastClick.attach(document.body);
 /* eslint-disable no-new */
 new Vue({

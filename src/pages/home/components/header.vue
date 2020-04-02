@@ -1,28 +1,30 @@
 <template>
 <div class="header">
     <div class="header_left">
-        <span class="iconfont">iconfanhui</span>
+         <span class="iconfont">&#xe606;</span>
     </div>
     <div class="header_center">
-        <span class="iconfont">iconzoom</span>
+        <span class="iconfont">&#xe613;</span>
         输入城市/景点/游玩主题
         </div>
         <div class="header_right">
-            城市
-             <span class="iconfont">iconsuozaichengshi--</span>
+        城市
+        <span class="iconfont">&#xe619;</span>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: "HomeHeader"
 };
 </script>
 
 <style lang="stylus" scoped>
+@import "~@/assets/style/varibles.styl"
 .header {
-    background-color: #02bcd5;
+    background-color: $bgColor;
     overflow: hidden;
     color: #fff;
     padding: 0.2rem;
