@@ -1,57 +1,30 @@
 <template>
-<div class="list_wrapper"  ref="wrapper">
+<div class="list_wrapper" ref="wrapper">
     <div>
-    <div class="lw_section">
-        <div class="ls_tit">当前城市</div>
-        <div class="ls_li">
-            <div class="button_box">
-                <div class="button">北京</div>
+        <div class="lw_section">
+            <div class="ls_tit">当前城市</div>
+            <div class="ls_li">
+                <div class="button_box">
+                    <div class="button">北京</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="lw_section">
-        <div class="ls_tit">热门城市</div>
-        <div class="ls_li">
-            <div class="button_box">
-                <div class="button">北京</div>
-            </div>
-            <div class="button_box">
-                <div class="button">北京</div>
-            </div>
-            <div class="button_box">
-                <div class="button">北京</div>
-            </div>
-            <div class="button_box">
-                <div class="button">北京</div>
+        <div class="lw_section">
+            <div class="ls_tit">热门城市</div>
+            <div class="ls_li">
+                <div class="button_box" v-for="item of hotCities" :key="item.id">
+                    <div class="button">{{item.name}}</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="lw_section">
-        <div class="ls_tit">A</div>
-        <div class="ls_li">
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
+        <div class="lw_section">
+            <div v-for="(item,key) of cities">
+                <div class="ls_tit">{{key}}</div>
+                <div class="ls_li">
+                    <div class="alp_li border-bottom" v-for="city of item">{{city.name}}</div>
+                </div>
+            </div>
         </div>
-        <div class="ls_tit">A</div>
-        <div class="ls_li">
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-        </div>
-        <div class="ls_tit">A</div>
-        <div class="ls_li">
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-            <div class="alp_li border-bottom">阿拉尔</div>
-        </div>
-    </div>
     </div>
 </div>
 </template>
@@ -60,6 +33,10 @@
 import BScroll from "better-scroll";
 export default {
     name: "CityList",
+    props: {
+        hotCities: Array,
+        cities: Object
+    },
     mounted() {
         this.scroll = new BScroll(this.$refs.wrapper);
     }
@@ -71,8 +48,8 @@ export default {
 
 .list_wrapper {
     overflow: hidden;
-    position: absolute;
-    top: 1.5rem;
+    
+    top: 1.62rem;
     left: 0;
     right: 0;
     bottom: 0;
