@@ -24,22 +24,21 @@ export default {
 <style lang="stylus" scoped>
 @import "~@/assets/style/varibles.styl"
 .header {
-    background-color: $bgColor;
-    overflow: hidden;
+  background-color: $bgColor;
+  overflow: hidden;
+  color: #fff;
+  padding: 0.2rem;
+  margin :0;
+  .header_left {
+    float: left;
+  }
+  .header_center {
+    float: left;
+    margin: 0 0.2rem;
+  }
+  .header_right {
+    float: right;
     color: #fff;
-    padding: 0.2rem;
-
-    .header_left {
-        float: left;
-    }
-
-    .header_center {
-        float: left;
-        margin: 0 0.2rem;
-    }
-
-    .header_right {
-        float: right;
-    }
+  }
 }
 </style>

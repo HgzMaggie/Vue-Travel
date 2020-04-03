@@ -3,6 +3,8 @@
     <home-header></home-header>
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
+    <home-recomment :list="recommentList"></home-recomment>
+    <home-weekend :list="weekendList"></home-weekend>
 
 </div>
 </template>
@@ -12,12 +14,16 @@
 import HomeHeader from "./components/header";
 import HomeSwiper from "./components/swiper";
 import HomeIcons from "./components/icons";
+import HomeRecomment from "./components/recommend";
+import HomeWeekend from "./components/weekend";
 export default {
     name: 'home',
     components: {
         HomeHeader,
         HomeSwiper,
         HomeIcons,
+        HomeRecomment,
+        HomeWeekend
     },
     data() {
         return {
@@ -27,6 +33,7 @@ export default {
                 {id:"003",src:"https://th.wallhaven.cc/small/r2/r2ze21.jpg"},
 
                     ],
+
             iconList:[
         {
           id:'001',
@@ -84,6 +91,42 @@ export default {
         }       
 
                      ],
+            recommentList: [
+        {
+          id: "001",
+          imgUrl:
+            "http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_200x200_50323152.jpg",
+          infoTit: "北京世界园艺博览会",
+          infoTxt: "80条评论",
+          infoMoney: "108"
+        },
+        {
+          id: "002",
+          imgUrl:
+            "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg",
+          infoTit: "故宫",
+          infoTxt: "659条评论",
+          infoMoney: "60"
+        }
+                           ],
+
+            weekendList: [
+        {
+          id: "001",
+          imgUrl:
+            "http://img1.qunarzz.com/sight/source/1603/6d/2f67ae0659f41f.jpg_r_640x214_bf6cbd0b.jpg",
+          infoTit: "北京赏花好地方",
+          infoTxt: "乱花渐欲迷人眼，京城赏花大搜索"
+        },
+        {
+          id: "002",
+          imgUrl:
+            "http://img1.qunarzz.com/sight/source/1811/f3/86173f863bef61.jpg_r_640x214_52b003ac.jpg",
+          infoTit: "京城周末撒欢",
+          infoTxt: "在帝都过周末，不仅仅是城中游！"
+        }
+                         ],
+
         };
     },
 };
