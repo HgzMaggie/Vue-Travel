@@ -22,13 +22,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import "~@/assets/style/varibles.styl"
+// @import "../../../assets/style/varibles"
+// @import "~@/assets/style/varibles"
+@import '~style/varibles';
 .header {
   background-color: $bgColor;
   overflow: hidden;
   color: #fff;
   padding: 0.2rem;
-  margin :0;
   .header_left {
     float: left;
   }
