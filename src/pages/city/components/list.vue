@@ -21,7 +21,7 @@
             <div v-for="(item,key) of cities" :key="key" :ref="key">
                 <div class="ls_tit">{{key}}</div>
                 <div class="ls_li">
-                    <div class="alp_li border-bottom" v-for="city of item" :key="item.id">{{city.name}}</div>
+                    <div class="alp_li border-bottom" v-for="city of item" :key="city.id">{{city.name}}</div>
                 </div>
             </div>
         </div>
