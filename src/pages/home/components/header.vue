@@ -9,7 +9,7 @@
         </div>
         <router-link to="city">
         <div class="header_right">
-        {{this.$store.state.city}}
+         {{this.city}}
         <span class="iconfont">&#xe619;</span>
         </div>
         </router-link>
@@ -17,9 +17,12 @@
 </template>
 
 <script>
-
+import {mapState, mapGetters} from "vuex";
 export default {
     name: "HomeHeader",
+    computed: {
+       ...mapState(['city']),
+    },
     data() {
       return {
         
@@ -32,6 +35,7 @@ export default {
 // @import "../../../assets/style/varibles"
 // @import "~@/assets/style/varibles"
 @import '~style/varibles';
+
 .header {
   background-color: $bgColor;
   overflow: hidden;
