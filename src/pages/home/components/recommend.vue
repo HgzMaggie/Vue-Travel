@@ -3,20 +3,20 @@
     <div class="rw_tit">猜你喜欢</div>
     <div class="rw_list">
         <router-link class="rl_li border-bottom" v-for="item of list" :key="item.id" :to="'/detail/' + item.id">
-            <div class="a">
-                <div class="pic">
-                <img :src="item.imgUrl" alt class="img">
-                </div>
-                <div class="info">
-                <div class="tit">{{item.infoTit}}</div>
-                <div class="txt">{{item.infoTxt}}</div>
-                <div class="money">
-                    <b class="b">¥</b>
-                    <i class="i">{{item.infoMoney}}</i>起
-                </div>
-                </div>
-            </div>
-        </router-link>
+    <div class="a">
+        <div class="pic">
+        <img :src="item.imgUrl" alt class="img">
+        </div>
+        <div class="info">
+        <div class="tit">{{item.infoTit}}</div>
+        <div class="txt">{{item.infoTxt}}</div>
+        <div class="money">
+            <b class="b">¥</b>
+            <i class="i">{{item.infoMoney}}</i>起
+        </div>
+        </div>
+        </div>
+    </router-link>
     </div>
     <div class="rw_more">
         <a href class="a">查看所有产品</a>
