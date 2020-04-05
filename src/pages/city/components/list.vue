@@ -5,14 +5,14 @@
             <div class="ls_tit">当前城市</div>
             <div class="ls_li">
                 <div class="button_box">
-                    <div class="button">北京</div>
+                    <div class="button"> {{this.$store.state.city}}</div>
                 </div>
             </div>
         </div>
         <div class="lw_section">
             <div class="ls_tit">热门城市</div>
             <div class="ls_li">
-                <div class="button_box" v-for="item of hotCities" :key="item.id">
+                <div class="button_box" v-for="item of hotCities" :key="item.id"  @click="handleCityClick(item.name)">
                     <div class="button">{{item.name}}</div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
             <div v-for="(item,key) of cities" :key="key" :ref="key">
                 <div class="ls_tit">{{key}}</div>
                 <div class="ls_li">
-                    <div class="alp_li border-bottom" v-for="city of item" :key="city.id">{{city.name}}</div>
+                   <div class="alp_li border-bottom" v-for="city of item" :key="city.id" @click="handleCityClick(city.name)">{{city.name}}</div>
                 </div>
             </div>
         </div>
@@ -48,7 +48,13 @@ export default {
                 this.scroll.scrollToElement(element);
             }
         }
+    },
+methods :{
+    handleCityClick(city){
+        // this.$store.dispatch("changeCity",city); // 派发
+        this.$store.commit("changeCity",city); // 提交
     }
+}
 };
 </script>
 
