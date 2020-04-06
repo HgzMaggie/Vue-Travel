@@ -1,70 +1,63 @@
 <template>
-    <div class="detail-content">
-        <detail-banner></detail-banner>
-        <detail-header></detail-header>
-        <detail-list :list=list></detail-list>
+<div class="detail-content">
+    <detail-banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></detail-banner>
+    <detail-header :sightName="sightName"></detail-header>
+    <div class="content">
+        <detail-list :categoryList="categoryList"></detail-list>
     </div>
+</div>
 </template>
 
 <script>
 import DetailBanner from "./components/banner";
 import DetailHeader from "./components/header";
 import DetailList from "./components/list";
+import axios from "axios";
 export default {
-    name : "Detail",
-    components :{
+    name: "detail",
+    components: {
         DetailBanner,
-        DetailHeader ,
-        DetailList,
+        DetailHeader,
+        DetailList
     },
-        data() {
-    return {
-  // ...
-list: [{
-    title: "非指定日上午场票",
-    children: [{
-            title: "[上午场]成人票（早定优惠）",
-            children:[{
-                title:"第三级",
-                children:[
-                    {
-                    title:"第四级01"
-                    },
-                     {
-                    title:"第四级02"
-                    },
-                ]
-            },{
-                title:"第三级"
-            }]
+    data() {
+        return {
+            sightName: "",
+            bannerImg: "",
+            gallaryImgs: [],
+            categoryList: []
+        };
+    },
+    methods: {
+        getDeatilInfo() {
+            // axios.get("/api/detail.json?params" + this.$route.params.id)
+            // 推荐把参数 params 放到对象中去使用：
+            axios
+                .get("/api/detail.json", {
+                    params: {
+                        id: this.$route.params.id
+                    }
+                })
+                .then(this.getDEatilInfoSucc);
         },
-        {
-            title: "[上午场]老人票"
+        getDEatilInfoSucc(result) {
+            if (result.data) {
+                var data = result.data.data;
+                this.sightName = data.sightName;
+                this.bannerImg = data.bannerImg;
+                this.gallaryImgs = data.gallaryImgs;
+                this.categoryList = data.categoryList;
+            }
         }
-    ]
-}, {
-    title: "指定日上午场票",
-    children: [{
-            title: "[上午场]老人票"
-        },
-        {
-            title: "[上午场]学生票"
-        }
-    ]
-}, {
-    title: "儿童票"
-}, {
-    title: "特惠票"
-}]
-// ...
-    };
-        },
-    };
-
+    },
+    mounted() {
+        this.getDeatilInfo();
+    }
+};
 </script>
 
 <style lang="stylus" scoped>
-    .detail-content{
-        height 20rem;
-    }
+.detail-content {
+    height: 20rem;
+}
 </style>

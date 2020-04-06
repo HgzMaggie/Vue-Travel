@@ -4,7 +4,7 @@
 
     <div class="banner-pic">
         <img
-        src="http://img1.qunarzz.com/sight/p0/1707/e1/e13a1e819bc59b79a3.img.jpg_600x330_29b1824b.jpg"
+        :src="bannerImg"
         alt
       >
     </div>
@@ -12,10 +12,10 @@
             <div class="bt-picnum">
                 <span class="iconfont">&#xe635;</span>3
             </div>
-            <div class="bt-tit">涠洲岛船票</div>
+            <div class="bt-tit">{{sightName}}</div>
         </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="GalleryClose"></common-gallary>
+    <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="GalleryClose"></common-gallary>
 </div>
 
 </template>
@@ -30,8 +30,13 @@ export default {
     data(){
         return {
             showGallary : false,
-            imgs : ["http://img1.qunarzz.com/sight/p0/1707/e1/e13a1e819bc59b79a3.img.jpg_600x330_29b1824b.jpg","http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_350x240_3a0fefe8.jpg","http://img1.qunarzz.com/sight/p0/1902/f3/f351c5dd27344a30a3.img.jpg_350x240_1136e527.jpg"]
+          
         }
+    },
+        props:{
+        sightName:String,
+        bannerImg :String,
+        gallaryImgs:Array
     },
     methods:{
         hanleBannerClick(){

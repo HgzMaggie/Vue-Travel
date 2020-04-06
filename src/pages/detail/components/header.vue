@@ -8,7 +8,7 @@
         <router-link class="header-left" to="/">
             <span class="iconfont">&#xe606;</span>
         </router-link>
-        <div class="header-center">北京世界园艺博览会</div>
+        <div class="header-center">{{sightName}}</div>
     </div>
 </div>
 </template>
@@ -23,6 +23,9 @@ export default {
                 opacity: 0
             }
         };
+    },
+        props: {
+        sightName: String
     },
     methods: {
         handleScroll() {
