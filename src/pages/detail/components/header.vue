@@ -2,6 +2,7 @@
 <div class="detail-header">
     <router-link class="header-abs" to="/" v-show="showAbs">
         <span class="iconfont">&#xe606;</span>
+        <span class="ticket"></span>
     </router-link>
     <div class="header-fix" v-show="!showAbs" :style="opacityStyle">
         <router-link class="header-left" to="/">
